@@ -16,7 +16,7 @@ local Window = Rayfield:CreateWindow({
       Invite = "noinvitelink",
       RememberJoins = true
    },
-   KeySystem = true, -- Enabled key system
+   KeySystem = true,
    KeySettings = {
       Title = "Access Key",
       Subtitle = "Enter your key",
@@ -32,23 +32,26 @@ local Window = Rayfield:CreateWindow({
 local HomeTab = Window:CreateTab("Home", 4483362458)
 local ScriptsTab = Window:CreateTab("Scripts", 4483362458)
 local NewsTab = Window:CreateTab("News", 4483362458)
-local WhatIsOxyHubTab = Window:CreateTab("What is OxyHub", 4483362458) -- Renamed from GitHub
 local DiscordTab = Window:CreateTab("Discord", 4483362458)
 local UpdatesTab = Window:CreateTab("Updates", 4483362458)
 
--- Add Sections and Detailed Server Statuses to Home Tab
+-- Add Sections and Elements to Home Tab
 HomeTab:CreateLabel("Welcome to OxyHub!")
 HomeTab:CreateLabel("News: Check out the latest updates!")
-
 HomeTab:CreateSection("Server Status")
-HomeTab:CreateLabel("Main Server: Online - No issues reported. All services running smoothly.")
-HomeTab:CreateLabel("Authentication Server: Online - Responding within normal parameters.")
-HomeTab:CreateLabel("Script Repository: Online - New scripts are being added regularly.")
-HomeTab:CreateLabel("Database Server: Online - Data is being processed and saved without any issues.")
-HomeTab:CreateLabel("Backup Server: Offline - Scheduled maintenance. Expected back online in 2 hours.")
-HomeTab:CreateLabel("API Server: Online - All APIs are fully functional and responsive.")
+HomeTab:CreateLabel("Server 1: Online - Running on version 1.2.3 with 99.9% uptime.")
+HomeTab:CreateLabel("Server 2: Online - Backup server with version 1.2.3 and 100% uptime.")
+HomeTab:CreateLabel("Database: Online - Database server running smoothly with 100% uptime.")
+HomeTab:CreateSection("Other")
+HomeTab:CreateButton({
+    Name = "GitHub",
+    Callback = function()
+        -- Open GitHub repository link
+        print("Opening GitHub...")
+    end
+})
 
--- Add Scripts to Scripts Tab
+-- Add Sections and Elements to Scripts Tab
 ScriptsTab:CreateButton({
     Name = "Adopt Me!",
     Callback = function()
@@ -74,43 +77,42 @@ ScriptsTab:CreateButton({
     end
 })
 ScriptsTab:CreateButton({
-    Name = "Jailbreak",
+    Name = "JailBreak",
     Callback = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/BlitzIsKing/UniversalFarm/main/Loader/Regular"))()
     end
 })
 
--- Add News to News Tab
+-- Add Sections and Elements to News Tab
 local NewsSection = NewsTab:CreateSection("Latest News")
-NewsTab:CreateParagraph({
-   Title = "OxyHub 2.0 Released!",
-   Content = "We've revamped the hub with new features and an improved UI. Check it out now!"
+NewsSection:CreateParagraph({
+   Title = "Version 1.0 Released",
+   Content = "We have released the first version of OxyHub! Explore the new features and let us know your feedback."
 })
-NewsTab:CreateParagraph({
-   Title = "New Scripts Added",
-   Content = "We've added scripts for 'Adopt Me!', 'Bloxburg', and more. Head over to the Scripts tab to explore."
-})
-NewsTab:CreateParagraph({
-   Title = "Discord Integration",
-   Content = "Join our Discord community directly from the hub! Share your thoughts, get help, and stay updated."
+NewsSection:CreateParagraph({
+   Title = "Upcoming Features",
+   Content = "We're working on adding more game scripts and enhancing the UI for a better user experience."
 })
 
--- Add Information to What is OxyHub Tab
-local WhatIsOxyHubSection = WhatIsOxyHubTab:CreateSection("About OxyHub")
-WhatIsOxyHubSection:CreateLabel("OxyHub is a powerful scripting hub designed to make executing scripts in Roblox easier than ever.")
-WhatIsOxyHubSection:CreateLabel("With a user-friendly interface and a wide variety of scripts, OxyHub is your go-to tool for customizing your Roblox experience.")
-WhatIsOxyHubSection:CreateLabel("We regularly update our hub with new features and scripts to keep you ahead of the curve.")
-WhatIsOxyHubSection:CreateLabel("Join our Discord community to get the latest news, support, and share your experience with other users.")
-
--- Add Updates to Updates Tab
-local UpdatesSection = UpdatesTab:CreateSection("Recent Updates")
-UpdatesTab:CreateParagraph({
-   Title = "Update 2.1.0",
-   Content = "Added new scripts for popular games. Improved script loading speed by 20%."
+-- Add Sections and Elements to Discord Tab
+local DiscordSection = DiscordTab:CreateSection("Join Our Discord")
+DiscordSection:CreateButton({
+   Name = "Join Discord",
+   Callback = function()
+      -- Open Discord invite link
+      print("Opening Discord...")
+   end
 })
-UpdatesTab:CreateParagraph({
-   Title = "Update 2.0.0",
-   Content = "Major UI overhaul. Introduced new server status monitoring and Discord integration."
+
+-- Add Sections and Elements to Updates Tab
+local UpdatesSection = UpdatesTab:CreateSection("Updates")
+UpdatesSection:CreateParagraph({
+   Title = "Update Log",
+   Content = "Version 1.0.1 - Minor bug fixes and performance improvements."
+})
+UpdatesSection:CreateParagraph({
+   Title = "Future Plans",
+   Content = "We're planning to introduce a new key system and additional script functionalities in the next update."
 })
 
 -- Example of a Notification
