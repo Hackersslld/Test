@@ -1,9 +1,6 @@
 -- Boot the Library
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
--- Define a more complex key (make sure this key is kept secret)
-local complexKey = "U7fS2@i3LpR9!vB6" -- Replace with your complex key
-
 -- Create the Main Window
 local Window = Rayfield:CreateWindow({
    Name = "OxyHub",
@@ -15,8 +12,8 @@ local Window = Rayfield:CreateWindow({
       FileName = "Config"
    },
    Discord = {
-      Enabled = true,
-      Invite = ".gg/oxyhub",
+      Enabled = false,
+      Invite = "noinvitelink",
       RememberJoins = true
    },
    KeySystem = true,
@@ -25,19 +22,9 @@ local Window = Rayfield:CreateWindow({
       Subtitle = "Enter your key",
       Note = "Get your key from our website",
       FileName = "Key",
-      SaveKey = false,
+      SaveKey = true,
       GrabKeyFromSite = false,
-      Key = {complexKey}, -- Use the complex key here
-      Callback = function(enteredKey)
-         if enteredKey == complexKey then
-            print("Key is correct. Loading scripts...")
-            -- Code to load the scripts and UI
-         else
-            print("Invalid key. Please check your key.")
-            -- Prevent further execution
-            return
-         end
-      end
+      Key = {"YourKey"} -- Replace "YourKey" with your actual key
    }
 })
 
@@ -52,9 +39,12 @@ local UpdatesTab = Window:CreateTab("Updates", 4483362458)
 HomeTab:CreateLabel("Welcome to OxyHub!")
 HomeTab:CreateLabel("News: Check out the latest updates!")
 HomeTab:CreateSection("Server Status")
-HomeTab:CreateLabel("Server 1: Online - Running on version 1.2.3 with 99.9% uptime.")
-HomeTab:CreateLabel("Server 2: Online - Backup server with version 1.2.3 and 100% uptime.")
-HomeTab:CreateLabel("Database: Online - Database server running smoothly with 100% uptime.")
+
+-- Add eye-catching server status labels
+HomeTab:CreateLabel("Server 1: ✅ Online")
+HomeTab:CreateLabel("Server 2: ✅ Online")
+HomeTab:CreateLabel("Database: ✅ Online")
+
 HomeTab:CreateSection("Other")
 HomeTab:CreateButton({
     Name = "GitHub",
@@ -109,12 +99,9 @@ NewsSection:CreateParagraph({
 
 -- Add Sections and Elements to Discord Tab
 local DiscordSection = DiscordTab:CreateSection("Join Our Discord")
-DiscordSection:CreateButton({
-   Name = "Join Discord",
-   Callback = function()
-      -- Open Discord invite link
-      print("Opening Discord...")
-   end
+DiscordSection:CreateLabel({
+   Name = "Join our community on Discord!",
+   Text = "discord.gg/oxyhub"
 })
 
 -- Add Sections and Elements to Updates Tab
