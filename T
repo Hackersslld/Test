@@ -24,14 +24,13 @@ local Window = Rayfield:CreateWindow({
       FileName = "Key",
       SaveKey = true,
       GrabKeyFromSite = false,
-      Key = {"U7fS2@i3LpR9!vB6"} -- Replace "YourKey" with your actual key
+      Key = {"YourKey"} -- Replace "YourKey" with your actual key
    }
 })
 
 -- Create Tabs for Different Sections
 local HomeTab = Window:CreateTab("Home", 4483362458)
 local ScriptsTab = Window:CreateTab("Scripts", 4483362458)
-local NewsTab = Window:CreateTab("News", 4483362458)
 local UpdatesTab = Window:CreateTab("Updates", 4483362458)
 
 -- Add Sections and Elements to Home Tab
@@ -83,17 +82,6 @@ ScriptsTab:CreateButton({
     Callback = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/BlitzIsKing/UniversalFarm/main/Loader/Regular"))()
     end
-})
-
--- Add Sections and Elements to News Tab
-local NewsSection = NewsTab:CreateSection("Latest News")
-NewsSection:CreateParagraph({
-   Title = "Version 1.0 Released",
-   Content = "We have released the first version of OxyHub! Explore the new features and let us know your feedback."
-})
-NewsSection:CreateParagraph({
-   Title = "Upcoming Features",
-   Content = "We're working on adding more game scripts and enhancing the UI for a better user experience."
 })
 
 -- Add Sections and Elements to Updates Tab
