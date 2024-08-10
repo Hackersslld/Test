@@ -1,0 +1,141 @@
+-- Boot the Library
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+
+-- Create the Main Window
+local Window = Rayfield:CreateWindow({
+   Name = "OxyHub",
+   LoadingTitle = "OxyHub",
+   LoadingSubtitle = "Scripting Made Easy",
+   ConfigurationSaving = {
+      Enabled = true,
+      FolderName = "OxyHub", -- Custom folder name
+      FileName = "Config"
+   },
+   Discord = {
+      Enabled = false,
+      Invite = "noinvitelink",
+      RememberJoins = true
+   },
+   KeySystem = true,
+   KeySettings = {
+      Title = "Access Key",
+      Subtitle = "Enter your key",
+      Note = "Get your key from our website",
+      FileName = "Key",
+      SaveKey = true,
+      GrabKeyFromSite = false,
+      Key = {"YourKey"}
+   }
+})
+
+-- Create Tabs for Different Sections
+local HomeTab = Window:CreateTab("Home", 4483362458)
+local ScriptsTab = Window:CreateTab("Scripts", 4483362458)
+local NewsTab = Window:CreateTab("News", 4483362458)
+local WhatIsOxyHubTab = Window:CreateTab("What is OxyHub", 4483362458)
+local DiscordTab = Window:CreateTab("Discord", 4483362458)
+local UpdatesTab = Window:CreateTab("Updates", 4483362458)
+
+-- Add Sections and Elements to Home Tab
+HomeTab:CreateLabel("Welcome to OxyHub!")
+HomeTab:CreateLabel("News: Check out the latest updates!")
+HomeTab:CreateSection("Server Status")
+HomeTab:CreateLabel("Main Server: Online - Fully operational and handling requests efficiently.")
+HomeTab:CreateLabel("Backup Server: Online - Ready to take over in case of any issues.")
+HomeTab:CreateLabel("Authentication Server: Online - Secure and running smoothly.")
+HomeTab:CreateSection("Other")
+HomeTab:CreateButton({
+    Name = "GitHub",
+    Callback = function()
+        -- Open GitHub repository link
+        print("Opening GitHub...")
+    end
+})
+
+-- Add Sections and Elements to Scripts Tab
+ScriptsTab:CreateButton({
+    Name = "Adopt Me!",
+    Callback = function()
+        loadstring(game:HttpGet("https://egorikusa.space/271ee1956d4b196c73150e64.lua", true))()
+    end
+})
+ScriptsTab:CreateButton({
+    Name = "Bloxburg",
+    Callback = function()
+        loadstring(game:HttpGet("https://vedrox.com/data/scripts/free/script.lua"))()
+    end
+})
+ScriptsTab:CreateButton({
+    Name = "Piggy",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/DFDERD41/autofarms-2-game/main/piggynoob", true))()
+    end
+})
+ScriptsTab:CreateButton({
+    Name = "Arsenal",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/tbao143/thaibao/main/TbaoHubArsenal"))()
+    end
+})
+ScriptsTab:CreateButton({
+    Name = "Jailbreak",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/BlitzIsKing/UniversalFarm/main/Loader/Regular"))()
+    end
+})
+
+-- Add Sections and Elements to News Tab
+local NewsSection = NewsTab:CreateSection("Latest News")
+NewsSection:CreateParagraph({
+   Title = "Update 1.0",
+   Content = "We have released a new update with exciting features!"
+})
+
+-- Add Sections and Elements to What is OxyHub Tab
+local WhatIsOxyHubSection = WhatIsOxyHubTab:CreateSection("About OxyHub")
+WhatIsOxyHubSection:CreateLabel("OxyHub is a script hub designed to make scripting easy and accessible.")
+
+-- Add Sections and Elements to Discord Tab
+local DiscordSection = DiscordTab:CreateSection("Join Our Discord")
+DiscordSection:CreateButton({
+   Name = "Join Discord",
+   Callback = function()
+      -- Open Discord invite link
+      print("Opening Discord...")
+   end
+})
+
+-- Add Sections and Elements to Updates Tab
+local UpdatesSection = UpdatesTab:CreateSection("Updates")
+UpdatesSection:CreateParagraph({
+   Title = "Update Log",
+   Content = "All the latest updates and changes will be listed here."
+})
+
+-- Example of a Notification
+Rayfield:Notify({
+   Title = "Welcome",
+   Content = "Thank you for using OxyHub!",
+   Duration = 5,
+   Image = 4483362458,
+   Actions = {
+      Ignore = {
+         Name = "Okay!",
+         Callback = function()
+            print("The user tapped Okay!")
+         end
+      }
+   }
+})
+
+-- Example of an Input Box in Home Tab
+local Input = HomeTab:CreateInput({
+   Name = "Enter Your Name",
+   PlaceholderText = "Type your name here...",
+   Callback = function(Text)
+      print("User entered: " .. Text)
+   end,
+})
+
+-- Clean up the interface when needed
+-- Rayfield:Destroy()
