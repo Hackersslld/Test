@@ -1,6 +1,34 @@
 -- Boot the Library
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
+-- Pastebin URL containing allowed Roblox IDs
+local pastebinURL = "https://pastebin.com/raw/4phZXnYN" -- Replace with your Pastebin URL
+
+-- Function to fetch allowed Roblox IDs from Pastebin
+local function fetchAllowedIDs()
+    local response = game:HttpGet(pastebinURL)
+    local ids = {}
+    for id in response:gmatch("%d+") do
+        table.insert(ids, id)
+    end
+    return ids
+end
+
+-- Function to check if the current user’s Roblox ID is allowed
+local function isUserAllowed(allowedIDs)
+    local player = game.Players.LocalPlayer
+    if player then
+        return table.find(allowedIDs, tostring(player.UserId)) ~= nil
+    end
+    return false
+end
+
+-- Fetch allowed Roblox IDs from Pastebin
+local allowedRobloxIDs = fetchAllowedIDs()
+
+-- Define a more complex key (make sure this key is kept secret)
+local complexKey = "U7fS2@i3LpR9!vB6" -- Replace with your complex key
+
 -- Create the Main Window
 local Window = Rayfield:CreateWindow({
    Name = "OxyHub",
@@ -20,11 +48,19 @@ local Window = Rayfield:CreateWindow({
    KeySettings = {
       Title = "Access Key",
       Subtitle = "Enter your key",
-      Note = "Get your key from our website",
+      Note = "Get your key by making a ticket.",
       FileName = "Key",
-      SaveKey = true,
+      SaveKey = false,
       GrabKeyFromSite = false,
-      Key = {"YourKey"}
+      Key = {complexKey}, -- Use the complex key here
+      Callback = function(enteredKey)
+         if enteredKey == complexKey and isUserAllowed(allowedRobloxIDs) then
+            print("Key is correct and user is allowed. Loading scripts...")
+            -- Code to load the scripts and UI
+         else
+            print("Invalid key or user not allowed. Please check your key and access permissions.")
+         end
+      end
    }
 })
 
@@ -55,31 +91,51 @@ HomeTab:CreateButton({
 ScriptsTab:CreateButton({
     Name = "Adopt Me!",
     Callback = function()
-        loadstring(game:HttpGet("https://egorikusa.space/271ee1956d4b196c73150e64.lua", true))()
+        if isUserAllowed(allowedRobloxIDs) then
+            loadstring(game:HttpGet("https://egorikusa.space/271ee1956d4b196c73150e64.lua", true))()
+        else
+            print("Access denied.")
+        end
     end
 })
 ScriptsTab:CreateButton({
     Name = "Bloxburg",
     Callback = function()
-        loadstring(game:HttpGet("https://vedrox.com/data/scripts/free/script.lua"))()
+        if isUserAllowed(allowedRobloxIDs) then
+            loadstring(game:HttpGet("https://vedrox.com/data/scripts/free/script.lua"))()
+        else
+            print("Access denied.")
+        end
     end
 })
 ScriptsTab:CreateButton({
     Name = "Piggy",
     Callback = function()
-        loadstring(Game:HttpGet("https://raw.githubusercontent.com/DFDERD41/autofarms-2-game/main/piggynoob", true))()
+        if isUserAllowed(allowedRobloxIDs) then
+            loadstring(Game:HttpGet("https://raw.githubusercontent.com/DFDERD41/autofarms-2-game/main/piggynoob", true))()
+        else
+            print("Access denied.")
+        end
     end
 })
 ScriptsTab:CreateButton({
     Name = "Arsenal",
     Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/tbao143/thaibao/main/TbaoHubArsenal"))()
+        if isUserAllowed(allowedRobloxIDs) then
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/tbao143/thaibao/main/TbaoHubArsenal"))()
+        else
+            print("Access denied.")
+        end
     end
 })
 ScriptsTab:CreateButton({
     Name = "JailBreak",
     Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/BlitzIsKing/UniversalFarm/main/Loader/Regular"))()
+        if isUserAllowed(allowedRobloxIDs) then
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/BlitzIsKing/UniversalFarm/main/Loader/Regular"))()
+        else
+            print("Access denied.")
+        end
     end
 })
 
