@@ -93,23 +93,12 @@ NewsSection:CreateParagraph({
 
 -- Add Sections and Elements to What is OxyHub Tab
 local WhatIsOxyHubSection = WhatIsOxyHubTab:CreateSection("About OxyHub")
-WhatIsOxyHubSection:CreateParagraph({
-    Title = "What is OxyHub?",
-    Content = [[
-OxyHub is a comprehensive and user-friendly script hub designed for Roblox enthusiasts who want to easily access, manage, and execute scripts for various popular games. With OxyHub, users can enjoy the following features:
-
-1. **Centralized Script Management:** OxyHub organizes scripts for multiple games in one place, allowing users to quickly find and run their desired scripts.
-
-2. **Ease of Use:** The hub is designed with simplicity in mind, making it accessible for users of all experience levels. The intuitive interface ensures that users can navigate the hub effortlessly.
-
-3. **Automated Key System:** To ensure that only authorized users can access OxyHub, a secure key system is implemented. This system provides an additional layer of protection for both the hub and its users.
-
-4. **Regular Updates:** OxyHub is constantly updated with new scripts and features, ensuring that users always have access to the latest tools and resources.
-
-5. **Community Integration:** While the Discord tab allows users to join the OxyHub community, the GitHub section links directly to the hub's repository, where users can contribute and stay informed about the latest developments.
-
-In summary, OxyHub is your go-to tool for enhancing your Roblox gaming experience, offering a seamless and secure environment for script execution.]]
-})
+WhatIsOxyHubSection:CreateLabel("OxyHub is a comprehensive and user-friendly script hub designed for Roblox enthusiasts.")
+WhatIsOxyHubSection:CreateLabel("1. Centralized Script Management: OxyHub organizes scripts for multiple games in one place.")
+WhatIsOxyHubSection:CreateLabel("2. Ease of Use: The hub is designed with simplicity in mind, making it accessible for users of all experience levels.")
+WhatIsOxyHubSection:CreateLabel("3. Automated Key System: To ensure that only authorized users can access OxyHub, a secure key system is implemented.")
+WhatIsOxyHubSection:CreateLabel("4. Regular Updates: OxyHub is constantly updated with new scripts and features.")
+WhatIsOxyHubSection:CreateLabel("5. Community Integration: Join the OxyHub community via Discord and GitHub for the latest updates and contributions.")
 
 -- Add Sections and Elements to Discord Tab
 local DiscordSection = DiscordTab:CreateSection("Join Our Discord")
