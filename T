@@ -48,9 +48,9 @@ local Window = Rayfield:CreateWindow({
    KeySettings = {
       Title = "Access Key",
       Subtitle = "Enter your key",
-      Note = "Get your key by making a ticket.",
+      Note = "Get your key from our website",
       FileName = "Key",
-      SaveKey = false,
+      SaveKey = true,
       GrabKeyFromSite = false,
       Key = {complexKey}, -- Use the complex key here
       Callback = function(enteredKey)
@@ -59,6 +59,8 @@ local Window = Rayfield:CreateWindow({
             -- Code to load the scripts and UI
          else
             print("Invalid key or user not allowed. Please check your key and access permissions.")
+            -- Prevent further execution
+            return
          end
       end
    }
