@@ -24,7 +24,7 @@ local Window = Rayfield:CreateWindow({
       FileName = "Key",
       SaveKey = true,
       GrabKeyFromSite = false,
-      Key = {"YourKey"} -- Replace "YourKey" with your actual key
+      Key = {"U7fS2@i3LpR9!vB6"} -- Replace "YourKey" with your actual key
    }
 })
 
@@ -32,7 +32,6 @@ local Window = Rayfield:CreateWindow({
 local HomeTab = Window:CreateTab("Home", 4483362458)
 local ScriptsTab = Window:CreateTab("Scripts", 4483362458)
 local NewsTab = Window:CreateTab("News", 4483362458)
-local DiscordTab = Window:CreateTab("Discord", 4483362458)
 local UpdatesTab = Window:CreateTab("Updates", 4483362458)
 
 -- Add Sections and Elements to Home Tab
@@ -97,22 +96,11 @@ NewsSection:CreateParagraph({
    Content = "We're working on adding more game scripts and enhancing the UI for a better user experience."
 })
 
--- Add Sections and Elements to Discord Tab
-local DiscordSection = DiscordTab:CreateSection("Join Our Discord")
-DiscordSection:CreateLabel({
-   Name = "Join our community on Discord!",
-   Text = "discord.gg/oxyhub"
-})
-
 -- Add Sections and Elements to Updates Tab
 local UpdatesSection = UpdatesTab:CreateSection("Updates")
 UpdatesSection:CreateParagraph({
    Title = "Update Log",
-   Content = "Version 1.0.1 - Minor bug fixes and performance improvements."
-})
-UpdatesSection:CreateParagraph({
-   Title = "Future Plans",
-   Content = "We're planning to introduce a new key system and additional script functionalities in the next update."
+   Content = "🚀 Added Adopt Me! script\n🎮 Added Bloxburg script\n🐷 Added Piggy script\n🔫 Added Arsenal script\n🚔 Added JailBreak script"
 })
 
 -- Example of a Notification
